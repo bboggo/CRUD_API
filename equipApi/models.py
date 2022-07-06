@@ -11,6 +11,7 @@ class TbEquipment(models.Model):
 
 
 class TbInformation(models.Model):
+    no = models.AutoField(db_column='NO', primary_key=True)
     equip_type_number = models.CharField(db_column='EQUIP_TYPE_NUMBER', max_length=3)  # Field name made lowercase.
     equip_name = models.CharField(db_column='EQUIP_NAME', max_length=30)  # Field name made lowercase.
     equip_manual = models.CharField(db_column='EQUIP_MANUAL', max_length=200)  # Field name made lowercase.

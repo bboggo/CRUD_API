@@ -36,7 +36,14 @@ urlpatterns = [
     re_path(r'^equipment/(?P<no>\d+)/$', views.detailView.as_view(), name='equipment-detail'),
     re_path(r'^equipment/(?P<no>\d+)/update$', views.updateView.as_view(), name='equipment-update'),    
     re_path(r'^equipment/(?P<no>\d+)/delete$', views.deleteView.as_view(), name='equipment-delete'),
+
+    re_path(r'^information/$', views.inforView.as_view(), name='information'),
+    re_path(r'^information/create/$', views.inforcreateView.as_view(), name='information-create'),
+    re_path(r'^information/(?P<no>\d+)/$', views.infordetailView.as_view(), name='information-detail'),
+    re_path(r'^information/(?P<no>\d+)/update$', views.inforupdateView.as_view(), name='information-update'),    
+    re_path(r'^information/(?P<no>\d+)/delete$', views.infordeleteView.as_view(), name='information-delete'),
 ]
+
 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
