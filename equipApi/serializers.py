@@ -17,7 +17,6 @@ class CreateSerializer(serializers.ModelSerializer):
         fields = ('equip_number', 'equip_type_number', 'creater_name')
 
 
-
 class InformationSerializer(serializers.ModelSerializer):
     class Meta:
         model = TbInformation

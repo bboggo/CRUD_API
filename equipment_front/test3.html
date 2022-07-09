@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>third test..</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>API TEST</h1>
+    <input id="equipmentName" value="" type="text">
+    <button id="search">검색</button><br>
+    <a href="Information.html"></a><br>
+    <p></p>
+    <script>
+         $(document).ready(function () {
+            $("#search").click(function () {
+                $.ajax({
+                    method: "GET",
+                    url: 'http://127.0.0.1:8000/information/',
+                    data: { query: $("#equipmentName").val() },
+                })
+                    .done(function (msg) {
+                        for(var i = 0; i < msg.length; i++){
+                            if(msg[i].equip_name == $("#equipmentName").val()){
+                                console.log(msg[i].equip_name);
+                                console.log(msg[i].equip_type_number);
+                                $( "a" ).append( "<strong>"+msg[i].equip_name+"</strong>" );
+                                $( "p" ).append( "<strong>"+msg[i].equip_type_number+"</strong>" );
+                                $( "p" ).append( "<strong>"+msg[i].equip_manual+"</strong>" );   
+                            }
+                        }
+
+                    });
+            });
+        });
+
+    </script>
+</body>
+</html>

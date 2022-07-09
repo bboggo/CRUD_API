@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>4th test..</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>API TEST</h1>
+    <h2>Delete TEST</h2>
+    <button id="Delete">삭제</button><br>
+
+    <p></p>
+    <script>
+         $(document).ready(function () {
+            $("#Delete").click(function () {
+                $.ajax({
+                    method: "DELETE",
+                    url: 'http://127.0.0.1:8000/information/5/delete',
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    complete: function(data) {
+                        console.log("삭제 완료")
+                    },
+                    error: function(data) {
+                        console.log("에러")
+                    }
+                })
+  
+            });
+        });
+
+    </script>
+</body>
+</html>
